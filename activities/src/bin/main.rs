@@ -21,11 +21,22 @@
 //}
 
 // Demo.rs exceptions if statements
+// fn main() {
+//     let age = 15;
+//     if age >= 21 {
+//         println!("ok to purchase");
+//     } else {
+//         println!("cannot purchase");
+//     }
+// }
+
+// match.rs
 fn main() {
-    let age = 15;
-    if age >= 21 {
-        println!("ok to purchase");
-    } else {
-        println!("cannot purchase");
+    let my_name = "Bob";
+    match my_name {
+        "Ashutosh" => println!("that is my name"),
+        "Bob" => println!("not my name"),
+        "Alice" => println!("hello Alice"),
+        _ => println!("nice to meet you!"),
     }
 }
