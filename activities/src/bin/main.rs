@@ -31,12 +31,25 @@
 // }
 
 // match.rs
+// fn main() {
+//     let my_name = "Bob";
+//     match my_name {
+//         "Ashutosh" => println!("that is my name"),
+//         "Bob" => println!("not my name"),
+//         "Alice" => println!("hello Alice"),
+//         _ => println!("nice to meet you!"),
+//     }
+// }
+
+// Repetition using loops
 fn main() {
-    let my_name = "Bob";
-    match my_name {
-        "Ashutosh" => println!("that is my name"),
-        "Bob" => println!("not my name"),
-        "Alice" => println!("hello Alice"),
-        _ => println!("nice to meet you!"),
+    let mut i = 3;
+    loop {
+        println!("{:?}", i);
+        i = i - 1;
+        if i == 0 {
+            break;
+        }
     }
+    println!("done!");
 }
