@@ -55,10 +55,29 @@
 // }
 
 // Repetition using while
+// fn main() {
+//     let mut i = 1;
+//     while i <= 3 {
+//         println!("{:?}", i);
+//         i = i + 1;
+//     }
+// }
+
+// Enum with Match
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
+}
 fn main() {
-    let mut i = 1;
-    while i <= 3 {
-        println!("{:?}", i);
-        i = i + 1;
+    let go = Direction::Up;
+    match go {
+        Direction::Up => println!("Go up"),
+        Direction::Down => println!("Go down"),
+        Direction::Left => println!("Go left"),
+        Direction::Right => println!("Go right"),
     }
 }
+
+//
