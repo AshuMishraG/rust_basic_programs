@@ -81,15 +81,31 @@
 // }
 
 // Struct
-struct GroceryItem {
-    stock: i32,
-    price: f64,
-}
+// struct GroceryItem {
+//     stock: i32,
+//     price: f64,
+// }
+// fn main() {
+//     let cereal = GroceryItem {
+//         stock: 10,
+//         price: 2.99,
+//     };
+//     println!("Stock: {:?}", cereal.stock);
+//     println!("Price: {:?}", cereal.price);
+// }
+
+// Tuples
 fn main() {
-    let cereal = GroceryItem {
-        stock: 10,
-        price: 2.99,
-    };
-    println!("Stock: {:?}", cereal.stock);
-    println!("Price: {:?}", cereal.price);
+    let coord = (2, 3);
+    println!("{:?}, {:?}", coord.0, coord.1);
+
+    let (x, y) = (2, 3);
+    println!("{:?}, {:?}", x, y);
+
+    let favorites = ("red", 14, "TX", "Pizza");
+
+    let state = favorites.2;
+    let place = favorites.3;
+
+    println!("{:?}, {:?}", state, place);
 }
