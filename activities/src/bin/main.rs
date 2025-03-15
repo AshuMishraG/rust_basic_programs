@@ -95,17 +95,33 @@
 // }
 
 // Tuples
+// fn main() {
+//     let coord = (2, 3);
+//     println!("{:?}, {:?}", coord.0, coord.1);
+//
+//     let (x, y) = (2, 3);
+//     println!("{:?}, {:?}", x, y);
+//
+//     let favorites = ("red", 14, "TX", "Pizza");
+//
+//     let state = favorites.2;
+//     let place = favorites.3;
+//
+//     println!("{:?}, {:?}", state, place);
+// }
+
+// Expressions
+enum Access {
+    Admin,
+    Manager,
+    User,
+    Guest,
+}
 fn main() {
-    let coord = (2, 3);
-    println!("{:?}, {:?}", coord.0, coord.1);
-
-    let (x, y) = (2, 3);
-    println!("{:?}, {:?}", x, y);
-
-    let favorites = ("red", 14, "TX", "Pizza");
-
-    let state = favorites.2;
-    let place = favorites.3;
-
-    println!("{:?}, {:?}", state, place);
+    let access_level = Access::Guest;
+    let can_access_file = match access_level {
+        Access::Admin => true,
+        _ => false,
+    };
+    println!("can access: {:?}", can_access_file);
 }
