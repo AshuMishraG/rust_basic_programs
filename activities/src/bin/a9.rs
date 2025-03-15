@@ -6,7 +6,18 @@
 //
 // Notes:
 // * Use a function that returns a tuple
-// * Destructure the return value into two variables
-// * Use an if..else if..else block to determine what to print
-
-fn main() {}
+fn coordinate() -> (i32, i32) {
+    (1, 7)
+}
+fn main() {
+    // * Destructure the return value into two variables
+    let (_, y) = coordinate();
+    // * Use an if..else if..else block to determine what to print
+    if y > 5 {
+        println!("y is greater than 5");
+    } else if y < 5 {
+        println!("y is less than 5");
+    } else {
+        println!("y is equal to 5");
+    }
+}
