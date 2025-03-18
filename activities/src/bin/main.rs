@@ -127,23 +127,49 @@
 // }
 
 // Ownership
-struct Book {
-    pages: i32,
-    rating: i32,
+// struct Book {
+//     pages: i32,
+//     rating: i32,
+// }
+// fn display_page_count(book: &Book) {
+//     println!("pages = {:?}", book.pages);
+// }
+// fn display_rating(book: &Book) {
+//     println!("rating = {:?}", book.rating);
+// }
+// fn main() {
+//     let book = Book {
+//         pages: 5,
+//         rating: 9,
+//     };
+//     display_page_count(&book);
+//     //no longer exits display_rating(book);
+//     display_rating(&book);
+// }
+
+// Impl
+struct Temperature {
+    degrees_f: f64,
 }
-fn display_page_count(book: &Book) {
-    println!("pages = {:?}", book.pages);
-}
-fn display_rating(book: &Book) {
-    println!("rating = {:?}", book.rating);
+impl Temperature {
+    fn freezing() -> Self {
+        Self { degrees_f: 32.0 }
+    }
+    fn boiling() -> Self {
+        Self { degrees_f: 212.0 }
+    }
+    fn show_temp(&self) {
+        println!("{:?} degree F", self.degrees_f);
+    }
 }
 fn main() {
-    let book = Book {
-        pages: 5,
-        rating: 9,
-    };
-    display_page_count(&book);
-    //no longer exits display_rating(book);
-    display_rating(&book);
+    let hot = Temperature { degrees_f: 99.9};
+    hot.show_temp();
+
+    let cold = Temperature::freezing();
+    cold.show_temp(); // can use this multiple times
+
+    let boiling = Temperature::boiling();
+    boiling.show_temp();
 }
 
