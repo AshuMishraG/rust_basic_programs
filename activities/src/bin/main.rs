@@ -148,28 +148,44 @@
 // }
 
 // Impl
-struct Temperature {
-    degrees_f: f64,
-}
-impl Temperature {
-    fn freezing() -> Self {
-        Self { degrees_f: 32.0 }
-    }
-    fn boiling() -> Self {
-        Self { degrees_f: 212.0 }
-    }
-    fn show_temp(&self) {
-        println!("{:?} degree F", self.degrees_f);
-    }
+// struct Temperature {
+//     degrees_f: f64,
+// }
+// impl Temperature {
+//     fn freezing() -> Self {
+//         Self { degrees_f: 32.0 }
+//     }
+//     fn boiling() -> Self {
+//         Self { degrees_f: 212.0 }
+//     }
+//     fn show_temp(&self) {
+//         println!("{:?} degree F", self.degrees_f);
+//     }
+// }
+// fn main() {
+//     let hot = Temperature { degrees_f: 99.9};
+//     hot.show_temp();
+//
+//     let cold = Temperature::freezing();
+//     cold.show_temp(); // can use this multiple times
+//
+//     let boiling = Temperature::boiling();
+//     boiling.show_temp();
+// }
+
+// Vectors
+struct Test {
+    score: i32,
 }
 fn main() {
-    let hot = Temperature { degrees_f: 99.9};
-    hot.show_temp();
-
-    let cold = Temperature::freezing();
-    cold.show_temp(); // can use this multiple times
-
-    let boiling = Temperature::boiling();
-    boiling.show_temp();
+    let my_scores = vec![
+        Test { score: 90 },
+        Test { score: 100 },
+        Test { score: 200 },
+        Test { score: 300 },
+    ];
+    for test in my_scores {
+        println!("score = {:?}", test.score);
+    }
 }
 
