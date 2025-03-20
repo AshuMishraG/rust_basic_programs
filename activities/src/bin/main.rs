@@ -174,18 +174,42 @@
 // }
 
 // Vectors
-struct Test {
-    score: i32,
+// struct Test {
+//     score: i32,
+// }
+// fn main() {
+//     let my_scores = vec![
+//         Test { score: 90 },
+//         Test { score: 100 },
+//         Test { score: 200 },
+//         Test { score: 300 },
+//     ];
+//     for test in my_scores {
+//         println!("score = {:?}", test.score);
+//     }
+// }
+
+// Strings
+struct LineItem {
+    name: String,
+    count: i32,
+}
+fn print_name(name: &str) {
+    println!("name: {:?}", name);
 }
 fn main() {
-    let my_scores = vec![
-        Test { score: 90 },
-        Test { score: 100 },
-        Test { score: 200 },
-        Test { score: 300 },
+    let receipt = vec![
+        LineItem {
+            name: "cereal".to_owned(),
+            count: 1,
+        },
+        LineItem {
+            name: String::from("fruit"),
+            count: 3,
+        },
     ];
-    for test in my_scores {
-        println!("score = {:?}", test.score);
+    for item in receipt {
+        print_name(&item.name);
+        println!("count: {:?}", item.count);
     }
 }
-
