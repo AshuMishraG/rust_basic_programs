@@ -190,26 +190,63 @@
 // }
 
 // Strings
-struct LineItem {
-    name: String,
-    count: i32,
+// struct LineItem {
+//     name: String,
+//     count: i32,
+// }
+// fn print_name(name: &str) {
+//     println!("name: {:?}", name);
+// }
+// fn main() {
+//     let receipt = vec![
+//         LineItem {
+//             name: "cereal".to_owned(),
+//             count: 1,
+//         },
+//         LineItem {
+//             name: String::from("fruit"),
+//             count: 3,
+//         },
+//     ];
+//     for item in receipt {
+//         print_name(&item.name);
+//         println!("count: {:?}", item.count);
+//     }
+// }
+
+// Derive
+#[derive(Debug, Clone, Copy)]
+enum Position {
+    Manager,
+    Supervisor,
+    Worker
 }
-fn print_name(name: &str) {
-    println!("name: {:?}", name);
+#[derive(Debug, Clone, Copy)]
+struct Employee {
+    position: Position,
+    work_hours: i64
+}
+// creating copies hence not changing the ownership to the print statement
+fn print_employee(emp: Employee) {
+    println!("{:?}", emp);
 }
 fn main() {
-    let receipt = vec![
-        LineItem {
-            name: "cereal".to_owned(),
-            count: 1,
-        },
-        LineItem {
-            name: String::from("fruit"),
-            count: 3,
-        },
-    ];
-    for item in receipt {
-        print_name(&item.name);
-        println!("count: {:?}", item.count);
-    }
+    let me = Employee {
+        position: Position::Worker,
+        work_hours: 40
+    };
+    // using Clone and Copy now
+    print_employee(me);
+    print_employee(me);
+    // using debug on struct as well
+    // println!("{:?}", me);
+    // using debug on enum
+    // println!("{:?}", me.position);
+    // without using debug
+    // match me.position {
+    //     Position::Manager => println!("Manger"),
+    //     Position::Supervisor => println!("Supervisor"),
+    //     Position::Worker => println!("Worker")
+    // }
 }
+
