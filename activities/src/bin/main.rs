@@ -215,38 +215,70 @@
 // }
 
 // Derive
-#[derive(Debug, Clone, Copy)]
-enum Position {
-    Manager,
-    Supervisor,
-    Worker
+// #[derive(Debug, Clone, Copy)]
+// enum Position {
+//     Manager,
+//     Supervisor,
+//     Worker
+// }
+// #[derive(Debug, Clone, Copy)]
+// struct Employee {
+//     position: Position,
+//     work_hours: i64
+// }
+// // creating copies hence not changing the ownership to the print statement
+// fn print_employee(emp: Employee) {
+//     println!("{:?}", emp);
+// }
+// fn main() {
+//     let me = Employee {
+//         position: Position::Worker,
+//         work_hours: 40
+//     };
+//     // using Clone and Copy now
+//     print_employee(me);
+//     print_employee(me);
+//     // using debug on struct as well
+//     // println!("{:?}", me);
+//     // using debug on enum
+//     // println!("{:?}", me.position);
+//     // without using debug
+//     // match me.position {
+//     //     Position::Manager => println!("Manger"),
+//     //     Position::Supervisor => println!("Supervisor"),
+//     //     Position::Worker => println!("Worker")
+//     // }
+// }
+
+// Advanced Match
+enum Discount {
+    Percent(i32),
+    Flat(i32),
 }
-#[derive(Debug, Clone, Copy)]
-struct Employee {
-    position: Position,
-    work_hours: i64
-}
-// creating copies hence not changing the ownership to the print statement
-fn print_employee(emp: Employee) {
-    println!("{:?}", emp);
+struct Ticket {
+    event: String,
+    price: i32,
 }
 fn main() {
-    let me = Employee {
-        position: Position::Worker,
-        work_hours: 40
+    let n = 3;
+    match n {
+        3 => println!("three"),
+        // _ => println!("number: {:?}", n),
+        other => println!("number: {:?}", other),
+    }
+    let flat = Discount::Flat(2);
+    match flat {
+        Discount::Flat(2) => println!("flat 2"),
+        Discount::Flat(amount) => println!("flat discount of {:?}", amount),
+        _ => (),
+    }
+    let concert = Ticket {
+        event: "Concert".to_owned(),
+        price: 10,
     };
-    // using Clone and Copy now
-    print_employee(me);
-    print_employee(me);
-    // using debug on struct as well
-    // println!("{:?}", me);
-    // using debug on enum
-    // println!("{:?}", me.position);
-    // without using debug
-    // match me.position {
-    //     Position::Manager => println!("Manger"),
-    //     Position::Supervisor => println!("Supervisor"),
-    //     Position::Worker => println!("Worker")
-    // }
+    match concert {
+        Ticket { price: 10, event} => println!("event @ 10 = {:?}", event),
+        Ticket { price, .. } => println!("price = {:?}", price),
+    }
 }
 
