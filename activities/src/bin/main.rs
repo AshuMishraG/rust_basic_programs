@@ -283,28 +283,44 @@
 // }
 
 // Options
-struct Survey {
-    q1: Option<i32>,
-    q2: Option<bool>,
-    q3: Option<String>,
-}
-fn main() {
-    let response = Survey {
-        q1: Some(12),
-        q2: Some(true),
-        q3: Some("A".to_owned()),
-    };
+// struct Survey {
+//     q1: Option<i32>,
+//     q2: Option<bool>,
+//     q3: Option<String>,
+// }
+// fn main() {
+//     let response = Survey {
+//         q1: Some(12),
+//         q2: Some(true),
+//         q3: Some("A".to_owned()),
+//     };
+//
+//     match response.q1 {
+//         Some(ans) => println!("q1: {:?}", ans),
+//         None => println!("q1: no response"),
+//     }
+//     match response.q2 {
+//         Some(ans) => println!("q2: {:?}", ans),
+//         None => println!("q1: no response"),
+//     }
+//     match response.q3 {
+//         Some(ans) => println!("q3: {:?}", ans),
+//         None => println!("q1: no response"),
+//     }
+// }
 
-    match response.q1 {
-        Some(ans) => println!("q1: {:?}", ans),
-        None => println!("q1: no response"),
-    }
-    match response.q2 {
-        Some(ans) => println!("q2: {:?}", ans),
-        None => println!("q1: no response"),
-    }
-    match response.q3 {
-        Some(ans) => println!("q3: {:?}", ans),
-        None => println!("q1: no response"),
-    }
+// Documentation
+/// A favourite color.
+enum Color {
+    Red,
+    Blue,
 }
+/// A piece of mail.
+struct Mail {
+    address: String,
+}
+/// Adds two numbers together.
+fn add (a: i32, b: i32) -> i32 {
+    a + b
+}
+fn main() { }
