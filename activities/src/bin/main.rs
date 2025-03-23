@@ -223,7 +223,7 @@
 // }
 // #[derive(Debug, Clone, Copy)]
 // struct Employee {
-//     position: Position,
+//     aaaa: Position,
 //     work_hours: i64
 // }
 // // creating copies hence not changing the ownership to the print statement
@@ -251,34 +251,60 @@
 // }
 
 // Advanced Match
-enum Discount {
-    Percent(i32),
-    Flat(i32),
-}
-struct Ticket {
-    event: String,
-    price: i32,
+// enum Discount {
+//     Percent(i32),
+//     Flat(i32),
+// }
+// struct Ticket {
+//     event: String,
+//     price: i32,
+// }
+// fn main() {
+//     let n = 3;
+//     match n {
+//         3 => println!("three"),
+//         // _ => println!("number: {:?}", n),
+//         other => println!("number: {:?}", other),
+//     }
+//     let flat = Discount::Flat(2);
+//     match flat {
+//         Discount::Flat(2) => println!("flat 2"),
+//         Discount::Flat(amount) => println!("flat discount of {:?}", amount),
+//         _ => (),
+//     }
+//     let concert = Ticket {
+//         event: "Concert".to_owned(),
+//         price: 10,
+//     };
+//     match concert {
+//         Ticket { price: 10, event} => println!("event @ 10 = {:?}", event),
+//         Ticket { price, .. } => println!("price = {:?}", price),
+//     }
+// }
+
+// Options
+struct Survey {
+    q1: Option<i32>,
+    q2: Option<bool>,
+    q3: Option<String>,
 }
 fn main() {
-    let n = 3;
-    match n {
-        3 => println!("three"),
-        // _ => println!("number: {:?}", n),
-        other => println!("number: {:?}", other),
-    }
-    let flat = Discount::Flat(2);
-    match flat {
-        Discount::Flat(2) => println!("flat 2"),
-        Discount::Flat(amount) => println!("flat discount of {:?}", amount),
-        _ => (),
-    }
-    let concert = Ticket {
-        event: "Concert".to_owned(),
-        price: 10,
+    let response = Survey {
+        q1: Some(12),
+        q2: Some(true),
+        q3: Some("A".to_owned()),
     };
-    match concert {
-        Ticket { price: 10, event} => println!("event @ 10 = {:?}", event),
-        Ticket { price, .. } => println!("price = {:?}", price),
+
+    match response.q1 {
+        Some(ans) => println!("q1: {:?}", ans),
+        None => println!("q1: no response"),
+    }
+    match response.q2 {
+        Some(ans) => println!("q2: {:?}", ans),
+        None => println!("q1: no response"),
+    }
+    match response.q3 {
+        Some(ans) => println!("q3: {:?}", ans),
+        None => println!("q1: no response"),
     }
 }
-
