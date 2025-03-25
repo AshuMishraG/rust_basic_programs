@@ -310,17 +310,26 @@
 // }
 
 // Documentation
-/// A favourite color.
-enum Color {
-    Red,
-    Blue,
+// /// A favourite color.
+// enum Color {
+//     Red,
+//     Blue,
+// }
+// /// A piece of mail.
+// struct Mail {
+//     address: String,
+// }
+// /// Adds two numbers together.
+// fn add (a: i32, b: i32) -> i32 {
+//     a + b
+// }
+// fn main() { }
+
+// Standard Library
+fn main() {
+    let numbers = vec![1, 2, 3];
+    match numbers.is_empty() {
+        true => println!("no numbers"),
+        false => println!("has numbers"),
+    }
 }
-/// A piece of mail.
-struct Mail {
-    address: String,
-}
-/// Adds two numbers together.
-fn add (a: i32, b: i32) -> i32 {
-    a + b
-}
-fn main() { }
