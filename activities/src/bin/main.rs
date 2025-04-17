@@ -335,35 +335,65 @@
 // }
 
 // Result
-#[derive(Debug)]
-enum MenuChoice {
-    MainMenu,
-    Start,
-    Quit,
-}
-fn get_choice(input: &str) -> Result<MenuChoice, String> {
-    match input {
-        "mainMenu" => Ok(MenuChoice::MainMenu),
-        "start" => Ok(MenuChoice::Start),
-        "quit" => Ok(MenuChoice::Quit),
-        _ => Err("menu choice not found".to_owned()),
-    }
-}
-fn print_choice(choice: &MenuChoice) {
-    println!("choice = {:?}", choice);
-}
-fn pick_choice(input: &str) -> Result<(), String> {
-    let choice: MenuChoice = get_choice(input)?;
-    print_choice(&choice);
-    Ok(())
+// #[derive(Debug)]
+// enum MenuChoice {
+//     MainMenu,
+//     Start,
+//     Quit,
+// }
+// fn get_choice(input: &str) -> Result<MenuChoice, String> {
+//     match input {
+//         "mainMenu" => Ok(MenuChoice::MainMenu),
+//         "start" => Ok(MenuChoice::Start),
+//         "quit" => Ok(MenuChoice::Quit),
+//         _ => Err("menu choice not found".to_owned()),
+//     }
+// }
+// fn print_choice(choice: &MenuChoice) {
+//     println!("choice = {:?}", choice);
+// }
+// fn pick_choice(input: &str) -> Result<(), String> {
+//     let choice: MenuChoice = get_choice(input)?;
+//     print_choice(&choice);
+//     Ok(())
+// }
+// fn main() {
+//     let choice = pick_choice("end");
+//     println!("choice value = {:?}", choice);
+//     // let choice: Result<MenuChoice, _> = get_choice("leave");
+//     // // println!("choice = {:?}", choice);
+//     // match choice {
+//     //     Ok(inner_choice) => print_choice(&inner_choice),
+//     //     Err(e) => println!("error = {:?}", e),
+//     // }
+// }
+
+// HashMap
+use std::collections::HashMap;
+struct Contents {
+    content: String,
 }
 fn main() {
-    let choice = pick_choice("end");
-    println!("choice value = {:?}", choice);
-    // let choice: Result<MenuChoice, _> = get_choice("leave");
-    // // println!("choice = {:?}", choice);
-    // match choice {
-    //     Ok(inner_choice) => print_choice(&inner_choice),
-    //     Err(e) => println!("error = {:?}", e),
-    // }
+    let mut lockers = HashMap::new();
+    lockers.insert(
+        1,
+        Contents {
+            content: "stuff".to_owned(),
+        },
+    );
+    lockers.insert(
+        2,
+        Contents {
+            content: "shirt".to_owned(),
+        },
+    );
+    lockers.insert(
+        3,
+        Contents {
+            content: "gym shorts".to_owned(),
+        },
+    );
+    for (locker_number, content) in lockers.iter() {
+        println!("number: {:?}, content: {:?}", locker_number, content.content);
+    }
 }
